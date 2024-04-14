@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    tools:context=".MainActivity">
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="4dp"
+            app:title="ENG-VIE"
+            android:background="@color/cardview_light_background"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            app:titleTextColor="@android:color/black"
+            app:subtitleTextColor="@android:color/black"
+            app:popupTheme="@style/Widget.AppCompat.ActionBar"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+             >
+        </androidx.appcompat.widget.Toolbar>
+
+<!--  1 thanh Search dạng giống EditText để nhập từ khóa có tính năng tìm kiếm từ và bên phải thanh Search này một icon voice để tìm kiếm từ bằng giọng nói-->
+        <!-- Search Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <AutoCompleteTextView
+                android:id="@+id/search_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Search"
+                />
+
+            <ImageView
+                android:id="@+id/voice_search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_voice"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Voice Search" />
+        </LinearLayout>
+
+        <!-- ListView -->
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:background="@color/cardview_light_background" />
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:theme="@style/Widget.Design.NavigationView"
+        app:popupTheme="@style/Widget.Design.NavigationView"
+        app:menu="@menu/navigation_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
